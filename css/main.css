@@ -15,27 +15,42 @@
     --darkBg:var(--black);
     --darkBorder: var(--darkBorder);
     --headerText: var(--white);
-    --accent: var(--orange)
+    --accent: var(--orange);
+
+    /* light mode */
+    --pageBg: var(--white);
+    --textColor: var(--black);
+    --projectBoxShadow: 0px 5px 15px rgba(0, 0, 0, 0.25); 
+
+
 }
 
-/* 
-font-family: 'DM Sans', sans-serif;
-font-family: 'Poppins', sans-serif;
-*/
+.dark{
+    --pageBg: #1b1b1d;
+    --textColor: var(--white);
+    --projectBgColor: var(--black);
+    --projectBoxShadow: 0px 5px 35px rgba(0, 0, 0, 0.65); 
+    --projectImgBoxShadow: 0px 10px 10px rgba(7, 7, 7, 0.35); 
+
+}
 
 html, body{
-    height: 100%;
-    /* width: 100%; */
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: -0,5px;
-    color: var(--textColor);
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0,5px;
+
+    /* light mode */
+    background-color: var(--pageBg);
+    color: var(--textColor);
+
 }
 
 /* nav */
 
-.conteiner{
+.container{
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1200px;
@@ -51,7 +66,7 @@ html, body{
 
 .navRow{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     column-gap: 30px;
     row-gap: 20px;
@@ -62,6 +77,7 @@ html, body{
     font-family: 'Poppins', sans-serif;
     color: var(--headerText);       
     font-size: 24px;
+    margin-right: auto;
 }
 
 .logo strong {
@@ -88,6 +104,7 @@ html, body{
 }
 
 .navList__link--active{
+    color: var(--headerText);
     position: relative;
 }
 
@@ -102,12 +119,52 @@ html, body{
     height: 3px;
 }
 
+.darkModeBtn{
+    order: 1;
+
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 51px;
+    height: 26px;
+    padding: 5px;
+
+    border-radius: 100px;
+    background-color: #272727;
+
+}
+
+.darkModeBtn::before{
+    content: "";
+
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: left 0.2s ease-in;
+}
+
+.darkModeBtn--active::before{
+    left: 26px  
+}
+
+.darkModeBtnIcon{
+    position: relative;
+    z-index: 1;
+}
 
 /* header */
 
 .header{
     padding: 40px 0;
-    /* max-width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,6 +233,7 @@ html, body{
 /* projects */
 
 .section{
+    border-top: 1px var(--blackBorder) solid;
     padding: 70px 0;
 }
 
@@ -187,28 +245,36 @@ html, body{
     color: var(--accent);
     font-weight: 700;
 }
-.section__list{
+.projects__list{
     display: flex;
     column-gap: 30px;
-    row-gap: 30px;
+    row-gap: 50px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.section__list__item{
-    background-color: var(--white);
+.projects__list__item{
+    background-color: var(--projectBgColor);
     max-width: 370px;
     max-height: 350px;
-    box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--projectBoxShadow);
     border-radius: 10px;
+    transition: transform 0.2s ease-in;
 }
 
-.section__list__item__img{
-    border-radius: 10px;
+.projects__list__item:hover{
+    transform: translateY(-3px);
 }
 
-.section__list__item__title{
-    color: var(--black);
+
+.projects__list__item__img{
+
+    box-shadow: var(--projectImgBoxShadow);
+    border-radius: 10px 10px 0 0 ;
+}
+
+.projects__list__item__title{
+    color: var(--textColor);
     padding: 15px 20px 25px;
     font-size: 24px;
     font-weight: 700;
@@ -231,7 +297,8 @@ html, body{
 .projectDetails__img{
     max-width: 100%;
     margin-bottom: 40px;
-    box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.40);
+
     border-radius: 10px;
 }
 
@@ -242,16 +309,16 @@ html, body{
 }
 
 .projectDetails__githubRepoLinkBtn{
+    background-color: var(--white);
     display: flex;
     column-gap: 10px;
-    align-items: center;
     
     width: 169px;
     height: 48px;
     padding: 12px 20px;
 
-    border: 1px solid #000;
-    color: var(--pureBlack);
+    border: 1px solid rgb(88, 88, 88);
+    color: var(--black);
 
     transition: opacity 0.3s ease-in;
 
@@ -263,6 +330,12 @@ html, body{
     border-radius: 5px;
 }
 
+.projectDetails__githubRepoLinkBtn img{
+    border-radius: 100px;
+    width: 23px;
+    height: 24px;
+}
+
 .projectDetails__githubRepoLinkBtn:active{
     position: relative; 
     top: 1px;
@@ -270,6 +343,7 @@ html, body{
 
 .projectDetails__githubRepoLinkBtn:hover{
     color: var(--accent);
+    border-color: var(--accent);
 }
 
 
@@ -296,7 +370,7 @@ html, body{
     font-weight: 400;
     font-size: 18px;
     line-height: 1.50;
-    color: var(--black);
+    color: var(--textColor);
 
 }
 
@@ -306,16 +380,16 @@ html, body{
 /* footer */
 
 .footer{
-    padding: 60px 0;
+    padding: 40px 0;
     margin-top: auto;
     background-color: var(--darkBg);
+    border-top: 1px #26292D solid;
 }
 
 .footer__icons{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding-top: 60px; */
     column-gap: 30px;
 }
 
@@ -330,6 +404,11 @@ html, body{
 @media (max-width: 620px)
 
 {
+
+    .darkModeBtn{
+        order: 0;
+    }
+
     /* header */
     .header{
         min-height: 470px;
@@ -343,17 +422,22 @@ html, body{
         font-size: 40px;
     }
 
+    /* nav */
+    .navRow{
+        justify-content: space-between;
+    }
+
     /* projects */
 
     .section{
         padding: 40px 0;
     }
-    .section__title{
+    .projects__title{
         margin-bottom: 30px;
         font-size: 40px;
     }
 
-    .section__list__item__title{
+    .projects__list__item__title{
         font-size: 22px;
     }
 

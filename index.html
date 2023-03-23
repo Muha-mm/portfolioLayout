@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="./img/Portfolio.png">
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
 
+<body>
+    
     <nav class="nav">
-        <div class="conteiner">
+        <div class="container">
             <div class="navRow">
                 <a href="./index.html" class="logo">
                     <strong>Frontender</strong>portfolio</a>
-                    <ul class = "navList">
-                        <li class="navList__item"><a class="navList__link navList__link--active"  href="./index.html" >Projects</a></li>
-                        <li class="navList__item"><a class="navList__link "  href="./skills.html" >Skills</a></li>
-                        <li class="navList__item"><a class="navList__link "  href="./contacts.html" >Contacts</a></li>
-                    </ul>    
-                </div>
+
+                    <button class="darkModeBtn">
+                        <img src="./img/darkModeIcons/Sun.svg" alt="lightMode" class="darkModeBtnIcon">
+                        <img src="./img/darkModeIcons/Moon.svg" alt="darkMode" class="darkModeBtnIcon">
+                    </button>
+
+                <ul class = "navList">
+                    <li class="navList__item"><a class="navList__link--active "  href="./index.html" >Home</a></li>
+                    <li class="navList__item"><a class="navList__link"  href="./projects.html" >Projects</a></li>
+                    <li class="navList__item"><a class="navList__link"  href="./contacts.html" >Contacts</a></li>
+                </ul>    
             </div>
         </div>
     </nav>
@@ -38,58 +45,34 @@
 
     </header>
 
-    <section class="section">
-        <div class="conteiner">
-            <h1 class="section__title">Projects</h1>
-            <ul class="section__list">
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/01.png" alt="project_1">
-                        <h3 class = "section__list__item__title">Gaming streaming portal</h3>
-                    </a>
-                </li>
+    <main class="section">
+        <div class="container">
+            <div class="projectDetails">  
+                <h1 class="section__title">Skills</h1>
 
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/02.png" alt="project_2">
-                        <h3 class = "section__list__item__title">Video service</h3>
-                    </a>
-                </li>
+                <ul class="skills">
 
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/03.png" alt="project_3">
-                        <h3 class = "section__list__item__title">Video portal</h3>
-                    </a>
-                </li>
+                    <li class="skills__item">
+                        Frontend
+                       <p class="skills__item__details">JavaScript, TypeScript, ReactJS, Angular, Redux, HTML, CSS, NPM, BootStrap, MaterialUI, Yarn, TailwindCSS, StyledComponents</p>
+                    </li>
 
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/04.png" alt="project_4">
-                        <h3 class = "section__list__item__title">Dating app</h3>
-                    </a>
-                </li>
+                    <li class="skills__item">
+                        Backend
+                       <p class="skills__item__details">NodeJS, MySQL, MongoDB, PHP, Laravel</p>
+                    </li>
+    
+                </ul>   
+                    
 
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/05.png" alt="project_5">
-                        <h3 class = "section__list__item__title">Landing</h3>
-                    </a>
-                </li>
 
-                <li class="section__list__item">
-                    <a href="./projectPage.html">
-                        <img class="section__list__item__img" src="./img/projects/06.png" alt="project_6">
-                        <h3 class = "section__list__item__title">Gaming community</h3>
-                    </a>
-                </li>
 
-            </ul>
+            </div>  
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
-        <div class="conteiner">
+        <div class="container">
             <ul class = "footer__icons">
                 <li class="footer__icon">
                     <a href="https://vk.com/chackpack">
@@ -118,9 +101,11 @@
                 </li>
             </ul>
 
-            <p class="footer__description">© 2023 freelancer-portfolio.com</p>
+            <p class="footer__description">© 2023 frontender-portfolio.com</p>
         </div>
     </footer>
+
+    <script src="./js/darkMode.js"></script>
 
 </body>
 </html>
